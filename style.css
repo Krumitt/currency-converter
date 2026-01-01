@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: bisque;
+    border-radius: 30px;
+    width: 50vw;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+input {
+    max-width: 100%;
+}
