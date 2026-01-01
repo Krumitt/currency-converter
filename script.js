@@ -55,6 +55,8 @@ const updateExchangeRate = async () => {
     let rate = json_data[fromMenu.value.toLowerCase()][toMenu.value.toLowerCase()];
     exchangeRateMsg.textContent = `${amountInput.value} ${fromMenu.value}=${(rate * amountInput.value).toFixed(2)} ${toMenu.value}`;
 }
+let musicStarted = false;
+const bgMusic = document.querySelector("#bg-music");
 (function () {
     const fFragment = document.createDocumentFragment();
     const tFragment = document.createDocumentFragment();
@@ -89,5 +91,11 @@ toMenu.addEventListener("change", (event) => {
 })
 fromContainer.insertBefore(fromFlag, fromMenu);
 toContainer.insertBefore(toFlag, toMenu);
-amountInput.addEventListener("input", updateExchangeRate);
+amountInput.addEventListener("input", () => {
+    updateExchangeRate();
+    if (!musicStarted) {
+        bgMusic.play();
+        musicStarted = true;
+    }
+});
 window.addEventListener("load", updateExchangeRate);
